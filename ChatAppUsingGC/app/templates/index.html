@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <h1>Group Name: {{groupname}}</h1>
+    <textarea name="" id="chat-log" cols="100" rows="25" value=''>
+        
+            {% for message in chat %}
+                {{message.content}} 
+            {% endfor %}
+        
+    </textarea><br>
+    <input type="text" id="chat-message-input", size="108"><br>
+    <input type="button" value="Send" id="chat-message-submit"><br>
+    {{groupname | json_script:"group-name"}}     {% comment %} for accessing the groupname value in the javascript file by id 'group-name' {% endcomment %}
+
+    <script src="{% static "js/script.js" %}"></script>
+</body>
+</html>
