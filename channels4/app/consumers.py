@@ -12,6 +12,7 @@ class MySyncConsumer(SyncConsumer):
         
     def websocket_receive(self, event):
         message = event['text']
+        print(event)
         print(message)
         self.send({
             'type':'websocket.send',
